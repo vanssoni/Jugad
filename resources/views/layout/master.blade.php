@@ -11,7 +11,7 @@
 </head>
 <body>
 	<div class="navbar">
-		@include('layout.header')
+		@include('layout.sidebar')
 	</div>
 	<div class="container-fluid mt-5">
 		@yield('content')
