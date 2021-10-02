@@ -35,7 +35,27 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        return $request->all();
+        $posts = new Post;
+        $posts->post_content = $request->post_content;
+        $posts->post_type = $request->post_type;
+        $posts->uid = $request->uid;
+        if($request->hasfile('attachment')){
+            foreach ($request->file('attachment') as $files) {
+                $file = $files;
+                $extension = $file->getClientOriginalExtension();
+                $filename = rand(1, 1000).time().'.'.$extension;
+                $file->move('uploads/img' , $filename);
+                $posts->attachment = $filename;
+                
+            }  
+        }
+        // echo "<pre>";
+        //         print_r($request->input()) ;
+        //         echo $request->uid;
+        //         echo "</pre>";
+        $posts->save();
+       
+        return redirect()->back()->with('status' , 'Post Created Sucessfully');
     }
 
     /**

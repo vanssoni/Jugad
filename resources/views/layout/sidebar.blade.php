@@ -212,10 +212,18 @@ a.article:hover {
       </li>
       <li>
           <a href="{{ url('posts/index') }}">Create A Post</a>
-          <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false">Pages</a>
+      </li>
+      <li>
+          <a href="{{ url('posts/index') }}">My Posts Post</a>
       </li>
       <li>
           <a href="#">Portfolio</a>
+      </li>
+      <li>
+          <a href="#">My Team</a>
+      </li>
+      <li>
+          <a href="#">My Projects</a>
       </li>
       <li>
           <a href="#">Contact</a>
